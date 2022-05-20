@@ -1,17 +1,15 @@
 let quotesText = document.querySelector('#text');
 let quotesAuthor = document.querySelector('#author');
 let body = document.querySelector('body');
-
+const quoteIcon = document.querySelector('#queto-icon');
 const getQueotes = document.querySelector('#new-quote');
 getQueotes.addEventListener('click', getData);
 document.addEventListener('DOMContentLoaded', getData);
-
 const shareBtn = document.querySelector('#twitter-icon');
 shareBtn.addEventListener('click', () => {
-    let url = `https://twitter.com/intent/tweet?url=https%3A%2F%2Ferensarac.github.io%2Frandom-quote&text=lorem!&hashtags=random%20%23queto`
+    let url = `https://twitter.com/intent/tweet?url=https%3A%2F%2Ferensarac.github.io%2Frandom-queto&text=Hadi%20%20sende%20%20yap!&hashtags=random%20%23queto`
     window.open(url, '_blank');
 })
-
 function getData() {
     // Get data with fetch api.
     fetch('https://type.fit/api/quotes')
@@ -19,27 +17,18 @@ function getData() {
         .then(res => createQuotes(res))
         .catch(error => console.log(error));
 }
-
 function createQuotes(res) {
     let randomNumber = Math.floor(Math.random() * res.length);
-
-    quotesText.innerHTML = res[randomNumber].text;
+    let gradientColor = colors[Math.floor(Math.random() * colors.length)];
+    quotesText.innerHTML = res[randomNumber].text.toUpperCase();
     quotesAuthor.innerHTML = res[randomNumber].author;
-
-    if (res[randomNumber].author === null || res[randomNumber].author === '') {
-        quotesAuthor.innerHTML = 'Unkown';
-    }
-
-    quotesText.style.background = colors[Math.floor(Math.random() * colors.length)];
+    quotesText.style.background = gradientColor;
     quotesText.style.webkitBackgroundClip = 'text';
     quotesText.style.webkitTextFillColor = 'transparent';
-    // body.style.background = 'linear-gradient(45deg, #d4fc79, #96e6a1)';
     console.log(colors[2]);
 }
-
-// Every 5 sec getData function will start.
-setInterval(getData, 5000);
-
+// Every 5sec getData function will start.
+setInterval(getData, 10000);
 // Gradient Colors Data
 const colors = [
     "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",

@@ -1,5 +1,7 @@
+/* Inter Font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap');
 
+/* Reset CSS */
 *,
 *::before,
 *::after {
@@ -8,16 +10,54 @@
     padding: 0;
 }
 
+/* Default Styles */
 body {
-    padding: 5vw 15vw;
+    padding: 2vw 5vw;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
-    background-color: #000;
     width: 100%;
     min-height: 100vh;
     max-height: 100vh;
     display: grid;
     place-items: center;
+}
+
+/* Page Loading Animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0.35vw;
+    width: 100%;
+    background-color: #0080ff;
+    animation: loadingAnim2 10s infinite;
+    animation-delay: 0;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 50px;
+    min-width: 100%;
+    background-color: #121212;
+    outline: 5px solid #212121;
+    border-radius: 10px;
+}
+
+#quote {
+    display: grid;
+    place-items: center;
+}
+
+#text {
+    margin-top: 30px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 3em;
+    text-align: center;
 }
 
 #author {
@@ -26,7 +66,9 @@ body {
     font-weight: 400;
     font-size: 2em;
     position: relative;
+    text-align: center;
 }
+
 #author::after {
     position: absolute;
     width: 100px;
@@ -36,52 +78,40 @@ body {
     top: 0;
 }
 
-#text {
-    margin-top: 50px;
-    color: white;
-    font-weight: 800;
-    font-size: 3em;
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    width: 100%;
 }
 
-footer {
-    width: 100%;
-    margin-top: 5vw;
+footer div {
     display: flex;
+    flex-direction: row;
+    justify-content: right;
     gap: 10px;
-    justify-content: flex-end;
 }
 
 a {
     text-decoration: none;
 }
 
-#queto-icon {
-    padding: 5px;
-    color: #fff;
-    background-color: #646464;
-    border-radius: 50%;
-    font-size: 2.5em;
-}
-#twitter-icon {
-    display: none;
-    cursor: pointer;
-    color: #0080ff;
-    font-size: 1.25em;
-}
-
+/* New Quote // Share Button */
 #new-quote,
 #share-btn {
     outline: 0;
     border: 0;
     color: #fff;
-    background-color: #353535;
+    background-color: #212121;
+    /* background-color: #69737d; */
     border-radius: 10px;
     padding: 15px 25px;
     font-size: 1.25em;
     font-weight: 600;
-    transition: 1s;
+    transition: 500ms ease;
 }
 
+/* Share Button */
 #share-btn {
     cursor: default;
     display: flex;
@@ -90,26 +120,134 @@ a {
     gap: 10px;
 }
 
-#share-btn:hover > #twitter-icon {
-    display: block;
-}
-
-#new-quote:hover, #share-btn:hover {
-    background-color: #212121;
-}
-
-#theme-switcher, #github-info {
+/* Quote Icon RemixIcon */
+#queto-icon {
+    padding: 5px;
     color: #fff;
-    opacity: 40%;
-    font-size: 0.85em;
-    position: absolute;
+    /* background-color: #69737d; */
+    background-color: #646464;
+    border-radius: 15px;
+    font-size: 4em;
+    transition: 500ms ease;
+}
+#queto-icon:hover {
+    background-color: #0080ff;
 }
 
-@media screen and (max-width:768px){
+/* Twitter Icon RemixIcon */
+#twitter-icon {
+    display: block;
+    cursor: pointer;
+    color: #0080ff;
+    font-size: 1.25em;
+    transition: 400ms color;
+}
+
+/* New Quote & Share Button Hover Events */
+#new-quote:hover,
+#share-btn:hover {
+    background-color: #0080ff;
+}
+
+/* Share Button on hover Twitter Icon color changed. */
+#share-btn:Hover>#twitter-icon {
+    color: #fff;
+}
+
+/* -- MEDIA SCREEN -- */
+/* Mobile */
+@media screen and (max-width:768px) {
     body {
-        font-size: 14px;
+        font-size: 13px;
     }
-    footer {
-        justify-content: flex-start;
+}
+
+/* -- KEYFRAMES -- */
+/* Loading Animation 0*/
+@keyframes loadingAnim0 {
+    0% {
+        width: 0%;
+    }
+
+    10% {
+        width: 10%;
+    }
+
+    20% {
+        width: 20%;
+    }
+
+    30% {
+        width: 30%;
+    }
+
+    40% {
+        width: 40%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    70% {
+        width: 70%;
+    }
+
+    80% {
+        width: 80%;
+    }
+
+    90% {
+        width: 90%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Loading Animation 1*/
+@keyframes loadingAnim1 {
+    0% {
+        width: 0%;
+    }
+
+    20% {
+        width: 20%;
+    }
+
+    40% {
+        width: 40%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    80% {
+        width: 80%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Loading Animation 2*/
+@keyframes loadingAnim2 {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
     }
 }

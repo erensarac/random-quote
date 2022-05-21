@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Random Quote</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,25 +8,24 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-
 <body>
     <main id="app">
         <div id="quote">
             <i id="queto-icon" class="ri-double-quotes-l"></i>
-            <h1 id="text"></h1>
-            <p id="author"></p>
+            <div>
+                <h1 id="text"></h1>
+            </div>
         </div>
         <footer id="footer">
-            <button id="share-btn">
-                Share
-                 <i id="twitter-icon" class="ri-twitter-fill">
-                    <a href="#"></a>
-                </i>
-            </button>
-            <button id="new-quote">Get New Quote</button>
+            <div>
+                <p id="author"></p>
+            </div>
+            <div>
+                <button id="share-btn">Share <i id="twitter-icon" class="ri-twitter-fill"></i></button>
+                <button id="new-quote">Get New Quote</button>
+            </div>
         </footer>
     </main>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -20,6 +20,8 @@ body {
     max-height: 100vh;
     display: grid;
     place-items: center;
+    color: #fff;
+    background-color: #000;
 }
 
 /* Page Loading Animation */
